@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
-for num in range(10, 90):
-i = num // 10
-j = num % 10
-if j > i:
-if num != 89:
-print("{:02d}".format(num), end=', ')
-else:
-print("89")
+for a in range(10):
+    for b in range(10):
+        if a > b:
+            if a * 10 + b != 89:
+                print("{:02d}".format(a * 10 + b), end=', ')
+            else:
+                print("89")
