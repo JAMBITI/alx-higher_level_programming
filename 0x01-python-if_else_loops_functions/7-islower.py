@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# This is a function that checks for lowercase character.
-
 def islower(c):
-    return 'a' <= c <= 'z'
+    if ord(c) >= ord('a') and ord(c) <= ord('z'):
+        return True
+    return False
