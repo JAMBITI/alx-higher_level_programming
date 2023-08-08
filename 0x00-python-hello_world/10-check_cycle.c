@@ -2,26 +2,27 @@
 
 /**
  * check_cycle - checks if a singly linked list has a cycle in it
- * @list: pointer to the head of the list
+ * @head: pointer to the head of the list
  * Return: 1 if there is a cycle, 0 otherwise
  */
-int check_cycle(listint_t *list)
+int check_cycle(listint_t *head)
 {
-listint_t *slow, *fast;
+listint_t *slow_ptr, *fast_ptr;
 
-if (!list)
+if (!head)
 return (0);
 
-slow = list;
-fast = list->next;
+slow_ptr = head;
+fast_ptr = head->next;
 
-while (fast && fast->next)
+while (fast_ptr && fast_ptr->next)
 {
-if (slow == fast)
+if (slow_ptr == fast_ptr)
 return (1);
 
-slow = slow->next;
-fast = fast->next->next;
+slow_ptr = slow_ptr->next;
+fast_ptr = fast_ptr->next->next;
 }
+
 return (0);
 }
