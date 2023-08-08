@@ -1,2 +1,2 @@
-#!/usr/bin/python3
-import this
+#!/bin/bash
+python3 -m compileall $PYFILE -b
