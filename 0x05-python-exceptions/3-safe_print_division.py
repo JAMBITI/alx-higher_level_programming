@@ -5,11 +5,13 @@ def safe_print_division(a, b):
     except ZeroDivisionError:
         result = None
     else:
-        print("Inside result: {}".format(result))
         return result
     finally:
-        print("Inside finally block: {}".format(result))
+        print("Inside result: {}".format(result))
 
-# Test cases
-print(safe_print_division(10, 2))
-print(safe_print_division(5, 0))
+# Example usage
+numerator = 10
+denominator = 0
+
+result = safe_print_division(numerator, denominator)
+print("Outside result: {}".format(result))
