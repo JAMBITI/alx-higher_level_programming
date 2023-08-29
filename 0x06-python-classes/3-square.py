@@ -3,6 +3,7 @@
 This script defines a class called Square for geometric calculations.
 """
 
+
 class Square:
     """
     Represents a geometric square.
@@ -15,7 +16,8 @@ class Square:
         Initializes a new Square instance.
 
         Args:
-            size (int): The size of the square's sides. Must be a non-negative integer.
+        size (int): The size of the square's sides.
+        Must be a non-negative integer.
         Raises:
             TypeError: If size is not an integer.
             ValueError: If size is a negative integer.
@@ -34,4 +36,3 @@ class Square:
             int: The area of the square.
         """
         return self.__size ** 2
-

@@ -2,6 +2,8 @@
 """
 This module creates a class Square.
 """
+
+
 class Square:
     """
     A class named Square.
