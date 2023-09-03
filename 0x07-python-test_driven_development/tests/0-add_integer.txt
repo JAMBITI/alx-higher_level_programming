@@ -1,0 +1,59 @@
+===================================
+Test cases for add_integer function
+===================================
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> docstring = __import__('0-add_integer').__doc__
+>>> len(docstring) > 0
+True
+>>> docstring = __import__('0-add_integer').add_integer.__doc__
+>>> len(docstring) > 0
+True
+>>> add_integer(2, 3)  # 2 + 3 = 5
+5
+>>> add_integer(1.5, 2.5)  # 1.5 + 2.5 = 4
+4
+>>> add_integer(-2, 1)  # -2 + 1 = -1
+-1
+>>> add_integer(0, 0)  # 0 + 0 = 0
+0
+>>> add_integer("hello", 3)  # TypeError: a must be an integer
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(4, "world")  # TypeError: b must be an integer
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integer("not", "numbers")  # TypeError: a must be an integer
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(None)  # TypeError: a must be an integer
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
+>>> add_integer(1.1, None)  # TypeError: b must be an integer
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
+>>> add_integer(float('nan'))  # ValueError: cannot convert float NaN to integer
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(5, float('nan'))  # ValueError: cannot convert float NaN to integer
+Traceback (most recent call last):
+...
+ValueError: cannot convert float NaN to integer
+>>> add_integer(float('inf'))  # OverflowError: cannot convert float infinity to integer
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer(5, float('inf'))  # OverflowError: cannot convert float infinity to integer
+Traceback (most recent call last):
+...
+OverflowError: cannot convert float infinity to integer
+>>> add_integer()  # TypeError: add_integer() missing 1 required positional argument: 'a'
+Traceback (most recent call last):
+...
+TypeError: add_integer() missing 1 required positional argument: 'a'
