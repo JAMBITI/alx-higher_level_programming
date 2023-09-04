@@ -1,46 +1,45 @@
 #!/usr/bin/python3
+"""A program that solves the N queens problem."""
 import sys
 
 
-def is_safe(i, j, board):
-    """Check if placing a queen at position (i, j) is safe on the board."""
-    for row, col in board:
-        if i == row or j == col or abs(i - row) == abs(j - col):
-            return False
-    return True
+class NQueensSolver:
+    def __init__(self, N):
+        self.N = N
+        self.board = [-1] * N
+
+    def is_safe(self, row, col):
+        for i in range(row):
+            if self.board[i] == col or \
+                    self.board[i] - i == col - row or \
+                    self.board[i] + i == col + row:
+                return False
+        return True
+
+    def solve(self, row):
+        if row == self.N:
+            print([[i, self.board[i]] for i in range(self.N)])
+        else:
+            for col in range(self.N):
+                if self.is_safe(row, col):
+                    self.board[row] = col
+                    self.solve(row + 1)
 
 
-def solve_nqueens(n):
-    """Solve the N-Queens problem."""
-    if n < 4:
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+
+    try:
+        SIZE = int(sys.argv[1])
+    except ValueError:
+        print("N must be a number")
+        sys.exit(1)
+
+    if SIZE < 4:
         print("N must be at least 4")
-        return
+        sys.exit(1)
 
-    def backtrack(row, board):
-        if row == n:
-            solutions.append(board.copy())
-            return
-
-        for col in range(n):
-            if is_safe(row, col, board):
-                board.append((row, col))
-                backtrack(row + 1, board)
-                board.pop()
-
-    solutions = []
-    backtrack(0, [])
-
-    return solutions
-
-if len(sys.argv) != 2:
-    print("Usage: nqueens N")
-    sys.exit(1)
-
-n = int(sys.argv[1])
-if not isinstance(n, int):
-    print("N must be a number")
-    sys.exit(1)
-
-result = solve_nqueens(n)
-for solution in result:
-    print(solution)
+    solver = NQueensSolver(SIZE)
+    solver.solve(0)
