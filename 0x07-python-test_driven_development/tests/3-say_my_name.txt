@@ -1,0 +1,92 @@
+======================================
+Test cases for say_my_name function
+======================================
+
+# Import the function and its docstring
+>>> say_my_name = __import__('3-say_my_name').say_my_name
+>>> docstring = __import__('3-say_my_name').__doc__
+
+# Check if docstring is not empty
+>>> len(docstring) > 0
+True
+
+# Check if function docstring is not empty
+>>> docstring = __import__('3-say_my_name').say_my_name.__doc__
+>>> len(docstring) > 0
+True
+
+# Test with two names
+>>> say_my_name("John", "Smith")
+My name is John Smith
+
+# Test with a single name
+>>> say_my_name("Bob")
+My name is Bob
+
+# Test with a longer name
+>>> say_my_name("Bob The Builder")
+My name is Bob The Builder
+
+# Test with two parts of a name
+>>> say_my_name("Bob The", "Strong Builder")
+My name is Bob The Strong Builder
+
+# Test with an empty first name
+>>> say_my_name("")
+My name is
+
+# Test with two empty names
+>>> say_my_name("", "")
+My name is
+
+# Test with a single space as the first name
+>>> say_my_name(" ")
+My name is
+
+# Test with two spaces as names
+>>> say_my_name(" ", " ")
+My name is
+
+# Test with special characters in names
+>>> say_my_name("&@&", "()")
+My name is &@& ()
+
+# Test with an integer as the first name
+>>> say_my_name(12, "White")
+Traceback (most recent call last):
+...
+
+# Test with an integer as the last name
+>>> say_my_name('Bob', 98)
+Traceback (most recent call last):
+...
+
+# Test with an integer as both names
+>>> say_my_name(12, 'James')
+Traceback (most recent call last):
+...
+
+# Test with a list as the first name
+>>> say_my_name(['Jake', 'Mary', 'Nobody'], 'Bob')
+Traceback (most recent call last):
+...
+
+# Test with a list as the last name
+>>> say_my_name('Bob', ['Jake', 'Mary', 'Nobody'])
+Traceback (most recent call last):
+...
+
+# Test with two integers as names
+>>> say_my_name(12, 98)
+Traceback (most recent call last):
+...
+
+# Test with None as the first name
+>>> say_my_name(None)
+Traceback (most recent call last):
+...
+
+# Test with missing arguments
+>>> say_my_name()
+Traceback (most recent call last):
+...
