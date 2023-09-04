@@ -95,3 +95,39 @@ class Rectangle:
         if self.height == 0 or self.width == 0:
             return 0
         return 2 * (self.height + self.width)
+
+    def __str__(self):
+        """
+        Returns a string representation of the rectangle using '#'.
+
+        Returns:
+            str: A string representing the rectangle.
+        """
+        if self.height == 0 or self.width == 0:
+            return ""
+        square = ""
+        for i in range(self.height):
+            for j in range(self.width):
+                square += "#"
+            if i != self.height - 1:
+                square += "\n"
+        return square
+
+    def __repr__(self):
+        """
+        Returns a string representation of the rectangle.
+
+        Returns:
+            str: A string representation of the rectangle object.
+        """
+        return f"Rectangle({self.__width}, {self.__height})"
+
+    def __del__(self):
+        """
+        Prints a msg when an instance of Rectangle is deleted
+
+        Args:
+            self : Argument
+
+        """
+        print("Bye rectangle...")

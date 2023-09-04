@@ -1,65 +1,114 @@
 #!/usr/bin/python3
-"""Defines a Rectangle class."""
+"""
+A Python module defining the Rectangle class.
+"""
 
 
 class Rectangle:
-    """Represent a rectangle."""
+    """
+    A class that represents a Rectangle.
+    """
 
     def __init__(self, width=0, height=0):
-        """Initialize a new Rectangle.
+        """
+        Initializes a Rectangle object.
 
         Args:
-            width (int): The width of the new rectangle.
-            height (int): The height of the new rectangle.
+            width (int): The width of the rectangle (default is 0).
+            height (int): The height of the rectangle (default is 0).
         """
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def width(self):
-        """Get the width of the Rectangle."""
+        """
+        Getter method for width.
+
+        Returns:
+            int: The width of the rectangle.
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """Set the width of the Rectangle."""
+        """
+        Setter method for width.
+
+        Args:
+            value (int): The width to set.
+
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than 0.
+        """
         if not isinstance(value, int):
-            raise TypeError("width must be an integer")
+            raise TypeError("Width must be an integer")
         if value < 0:
-            raise ValueError("width must be >= 0")
+            raise ValueError("Width must be >= 0")
         self.__width = value
 
     @property
     def height(self):
-        """Get the height of the Rectangle."""
+        """
+        Getter method for height.
+
+        Returns:
+            int: The height of the rectangle.
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """Set the height of the Rectangle."""
+        """
+        Setter method for height.
+
+        Args:
+            value (int): The height to set.
+
+        Raises:
+            TypeError: If the value is not an integer.
+            ValueError: If the value is less than 0.
+        """
         if not isinstance(value, int):
-            raise TypeError("height must be an integer")
+            raise TypeError("Height must be an integer")
         if value < 0:
-            raise ValueError("height must be >= 0")
+            raise ValueError("Height must be >= 0")
         self.__height = value
 
     def area(self):
-        """Return the area of the Rectangle."""
-        return self.__width * self.__height
+        """
+        Calculates the area of the rectangle.
+
+        Returns:
+            int: The area of the rectangle.
+        """
+        return self.height * self.width
 
     def perimeter(self):
-        """Return the perimeter of the Rectangle."""
-        if self.__width == 0 or self.__height == 0:
+        """
+        Calculates the perimeter of the rectangle.
+
+        Returns:
+            int: The perimeter of the rectangle.
+        """
+        if self.height == 0 or self.width == 0:
             return 0
-        return 2 * (self.__width + self.__height)
+        return 2 * (self.height + self.width)
 
     def __str__(self):
-        """Return the printable representation of the Rectangle.
-
-        Represents the rectangle with the # character.
         """
-        if self.__width == 0 or self.__height == 0:
-            return ""
+        Returns a string representation of the rectangle using '#'.
 
-        rect = ['#' * self.__width + '\n' for _ in range(self.__height)]
-        return "".join(rect)
+        Returns:
+            str: A string representing the rectangle.
+        """
+        if self.height == 0 or self.width == 0:
+            return ""
+        square = ""
+        for i in range(self.height):
+            for j in range(self.width):
+                square += "#"
+            if i != self.height - 1:
+                square += "\n"
+        return square
