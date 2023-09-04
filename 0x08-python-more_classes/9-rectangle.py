@@ -94,6 +94,19 @@ class Rectangle:
             return rect_1
         return rect_2
 
+    @classmethod
+    def square(cls, size=0):
+        """
+        Returns a new Rectangle instance with width == height == size
+
+        Args:
+            cls : Argument
+            size : Argument
+                (default is 0)
+
+        """
+        return cls(size, size)
+
     def area(self):
         """
         Calculates the area of the rectangle.
