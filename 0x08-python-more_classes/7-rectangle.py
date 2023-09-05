@@ -9,6 +9,9 @@ class Rectangle:
     A class that represents a Rectangle.
     """
 
+    number_of_instances = 0
+    print_symbol = "#"
+
     def __init__(self, width=0, height=0):
         """
         Initializes a Rectangle object.
@@ -17,9 +20,11 @@ class Rectangle:
             width (int): The width of the rectangle (default is 0).
             height (int): The height of the rectangle (default is 0).
         """
+
         self.height = height
         self.width = width
-
+        Rectangle.number_of_instances += 1
+    
     @property
     def width(self):
         """
@@ -108,7 +113,7 @@ class Rectangle:
         square = ""
         for i in range(self.height):
             for j in range(self.width):
-                square += "#"
+                square += str(self.print_symbol)
             if i != self.height - 1:
                 square += "\n"
         return square
