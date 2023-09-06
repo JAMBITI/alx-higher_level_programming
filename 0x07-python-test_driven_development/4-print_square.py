@@ -1,3 +1,9 @@
+#!/usr/bin/python3
+"""
+Module to print a square
+"""
+
+
 def print_square(size):
     """
     Prints a square of '#' characters.
