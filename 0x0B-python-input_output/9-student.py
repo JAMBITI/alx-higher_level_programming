@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-"""Defines a class Student with a to_json method."""
+"""Defines a class Student."""
 
 
 class Student:
-"""Represents a student with first name, last name, and age."""
+"""Represents a student."""
 
 def __init__(self, first_name, last_name, age):
-"""Initialize a new Student.
+"""Initialize a new Student object.
 
 Args:
 first_name (str): The first name of the student.
@@ -18,9 +18,5 @@ self.last_name = last_name
 self.age = age
 
 def to_json(self):
-"""Convert the Student object to a dictionary.
-
-Returns:
-dict: A dictionary representation of the Student.
-"""
+"""Return a dictionary representation of the Student object."""
 return self.__dict__
