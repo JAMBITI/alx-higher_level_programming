@@ -1,1 +1,1 @@
-0x0F-python-object_relational_mapping  ok
+0x0F-python-object_relational_mapping  k
